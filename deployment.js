@@ -2,7 +2,6 @@
 
 var Q = require('q');
 var ssh2Client = require('ssh2').Client;
-var path = require('path');
 var exec = require('child_process').exec;
 
 class Deployment {
