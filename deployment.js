@@ -68,7 +68,7 @@ class Deployment {
                     return this.executeRemote('mkdir -p ' + this.root);
                 }.bind(this))
                 .then(function () {
-                    return this.executeLocal('scp ' + this.files + ' ' + this.user + '@' + this.hostName + ':' + this.root)
+                    return this.executeLocal('scp ' + this.files.join(' ') + ' ' + this.user + '@' + this.hostName + ':' + this.root)
                 }.bind(this))
                 .then(function() {
                     console.log("Done!");
@@ -86,7 +86,7 @@ class Deployment {
         return Q.promise(function () {
             return this.initialized.promise
                 .then(function () {
-                    return this.executeRemote('cd ' + this.root + '; npm install --production');
+                    return this.executeRemote('cd ' + this.root + ';sudo npm install');
                 }.bind(this))
                 .then(function() {
                     console.log("Done!");
@@ -97,8 +97,8 @@ class Deployment {
         }.bind(this));
     }
 
-    runApp() {
-        const task = 'running app';
+    run() {
+        const task = 'starting app';
         console.log('\nStarting ' + task);
 
         return Q.promise(function () {
@@ -114,5 +114,24 @@ class Deployment {
                 });
         }.bind(this));
     }
+
+    stop() {
+        const task = 'stopping app';
+        console.log('\nStarting ' + task);
+
+        return Q.promise(function () {
+            return this.initialized.promise
+                .then(function () {
+                    return this.executeRemote('killall node');
+                }.bind(this))
+                .then(function() {
+                    console.log("Done!");
+                })
+                .catch(function (err) {
+                    console.log('Error in ' + task + ': ' + err);
+                });
+        }.bind(this));
+    }
+
 }
 module.exports = Deployment;

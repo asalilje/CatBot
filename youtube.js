@@ -40,7 +40,7 @@ class Youtube {
     };
 
     search() {
-        this.youTube.search('cute cat', 5, function (error, result) {
+        this.youTube.search('funny cat', 5, function (error, result) {
             if (error) {
                 console.log(error);
             }

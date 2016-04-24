@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gulp deploy",
+    "app": "gulp run",
+    "modules": "gulp modules",
+    "stop": "gulp stop"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +17,6 @@
     "ssh2": "^0.5.0"
   },
   "dependencies": {
-    "gpio-stream": "^1.0.17",
     "onoff": "^1.0.4",
     "twitter": "^1.2.5",
     "youtube-node": "^1.3.0"

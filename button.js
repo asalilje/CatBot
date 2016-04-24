@@ -45,7 +45,6 @@ class Button {
         this.active = true;
         console.log("Big red button is active!")
         var count = 0;
-        this.Youtube.postClip();
         this.blinkInterval = setInterval(function () {
             if (count <= this.activePeriodSecs) {
                 this.ledGpio.writeSync(count % 2);

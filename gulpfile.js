@@ -4,11 +4,11 @@ const gulp = require('gulp');
 const Deployment = require("./deployment.js");
 
 const Deploy = new Deployment({
-    hostName: 'raspberrypi2.local',
+    hostName: 'pi-ipnumber',
     projectName: 'BigRedButton',
-    user: 'root',
-    password: 'raspberr',
-    files: 'app.js button.js twitter.js youtube.js package.json',
+    user: 'pi-user',
+    password: 'pi-password',
+    files: ['app.js', 'button.js', 'twitter.js', 'youtube.js', 'package.json'],
     startFile: 'app.js '
 });
 
@@ -16,14 +16,14 @@ gulp.task('deploy', function () {
     return Deploy.deployProject();
 });
 
-gulp.task('npminstall', function () {
+gulp.task('run', function () {
+    return Deploy.run();
+});
+
+gulp.task('modules', function () {
     return Deploy.restoreModules();
 });
 
-gulp.task('run', function () {
-    return Deploy.runApp();
-});
-
-gulp.task('exit', function() {
-    return Deploy.killApp();
+gulp.task('stop', function () {
+    return Deploy.stop();
 });
