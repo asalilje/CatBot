@@ -3,8 +3,8 @@ const GPIO = require('onoff').Gpio;
 const Button = require('./button.js');
 
 const ledGpio = new GPIO(21, 'out');
-const buttonPushGpio = new GPIO(3, 'in', 'falling');
-const buttonLedGpio = new Gpio(4, 'out');
+const buttonPushGpio = new GPIO(2, 'in', 'falling');
+const buttonLedGpio = new GPIO(4, 'out');
 
 const button = new Button(30,  10, buttonLedGpio, buttonPushGpio);
 
