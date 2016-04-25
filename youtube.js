@@ -7,7 +7,8 @@ class Youtube {
     constructor() {
         this.youTube = new YoutubeNode();
         this.youTube.setKey('yourkeyhere');
-        this.youTube.addParam('order', 'rating');
+        this.youTube.addParam('order', 'viewCount');
+        this.youTube.addParam('safeSearch', 'strict');
         this.clipList = [];
         this.twitter = new Twitter();
         this.search();
@@ -40,7 +41,7 @@ class Youtube {
     };
 
     search() {
-        this.youTube.search('funny cat', 5, function (error, result) {
+        this.youTube.search('funny cat', 20, function (error, result) {
             if (error) {
                 console.log(error);
             }
