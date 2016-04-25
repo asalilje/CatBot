@@ -39,6 +39,7 @@ class Deployment {
             ssh2client.connect(connectOptions);
 
         }.bind(this));
+
     };
 
     executeLocal(command) {
