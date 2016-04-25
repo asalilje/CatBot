@@ -1,7 +1,7 @@
 {
   "name": "CatBot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Press the button when it blinks and I tweet a cat clip",
   "main": "index.js",
   "scripts": {
     "deploy": "gulp deploy",
@@ -9,7 +9,7 @@
     "modules": "gulp modules",
     "stop": "gulp stop"
   },
-  "author": "",
+  "author": "Åsa Liljegren",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
